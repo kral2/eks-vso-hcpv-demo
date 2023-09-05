@@ -1,0 +1,15 @@
+---
+apiVersion: v1
+kind : Namespace
+metadata:
+  name: app
+---
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultConnection
+metadata:
+  namespace: app
+  name: hcp-vault
+spec:
+  # required configuration
+  # API address of the Vault server.
+  address: "https://<your-hcp-vault-fqnd>.hashicorp.cloud:8200"

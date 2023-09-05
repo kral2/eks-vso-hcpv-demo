@@ -1,0 +1,16 @@
+---
+apiVersion: secrets.hashicorp.com/v1beta1
+kind: VaultAuth
+metadata:
+  name: eks-jwt-oidc
+  namespace: app
+spec:
+  vaultConnectionRef: hcp-vault
+  method: jwt
+  mount: jwt
+  jwt:
+    role: vso
+    serviceAccount: default
+    audiences:
+      - https://kubernetes.default.svc
+  namespace: admin
